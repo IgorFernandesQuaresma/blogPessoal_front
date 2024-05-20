@@ -1,12 +1,29 @@
 
 import './NavBar.css'
 import IgorLogo from '../../assets/logo/Igor.png'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Botao from '../botao/Botao';
+import { useContext } from 'react';
+import { AuthContext } from '../../contexts/AuthContext';
 
 function NavBar(){
+
+
+    const navigate = useNavigate()
+
+    const {handleLogout} = useContext(AuthContext)
+
+    function logout() {
+
+        handleLogout()
+        alert("Usuario desconectado com sucesso")
+        navigate("/")
+        
+    }
+    
     return (
         <>
+    <div className='p-4'>
    <nav className='bg-cinza 
         bg-opacity-20 
         flex flex-col justify-center items-center 
@@ -20,7 +37,7 @@ function NavBar(){
             <img className="nav_logo" src={IgorLogo} alt="Logo Igor" />
          </Link>
 
-         <Link to = './'>
+         <Link to = './home'>
                 <a className = "text-bege font-sans hover:text-branco" href="#home">Home</a>
          </Link>
 
@@ -30,11 +47,12 @@ function NavBar(){
                 <a className = "text-bege font-sans hover:text-branco" href="#temas">Temas</a>
                 <a className = "text-bege font-sans hover:text-branco" href="cadastrar_tema">Cadastrar tema</a>
                 <a className = "text-bege font-sans hover:text-branco" href="perfil">Perfil</a>
-                <a className = "text-bege font-sans hover:text-branco" href="sair">Sair</a>
+        <Link to="" onClick={logout} className="text-bege font-sans hover:text-branco">Sair</Link>
                 <Botao texto='Fale comigo' link='https//google.com'/>
     
         </ul>
     </nav>
+    </div>
         </>
     );
 }

@@ -5,19 +5,24 @@ import Footer from "../components/footer/Footer.tsx";
 import Home from "../paginas/home/Home.tsx";
 import Cadastro from "../paginas/cadastro/cadastro.tsx";
 import Login from "../paginas/login/login.tsx";
+import { AuthProvider } from "../contexts/AuthContext.tsx";
 
 function AppRoutes ( ) {
     return (
-        <BrowserRouter>
-        <NavBar/>
-            <Routes>
-                <Route path="/" element={<Home/>}></Route>
-                <Route path="/postagens" element={<Postagens/>}></Route>
-                <Route path="/cadastro" element={<Cadastro/>}></Route>
-                <Route path="/login" element={<Login/>}></Route>
-            </Routes>
-        <Footer />
-        </BrowserRouter>
+        <AuthProvider>
+            <BrowserRouter>
+                <NavBar />
+                <Routes>
+                    <Route path="/home" element={<Home />} />
+                    <Route path="/postagens" element={<Postagens />} />
+                    <Route path="/cadastro" element={<Cadastro />} />
+                    <Route path="/" element={<Login />} />
+                </Routes>
+                <Footer />
+            </BrowserRouter>
+        </AuthProvider>
+
+
     )
 }
 

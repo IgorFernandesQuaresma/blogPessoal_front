@@ -5,7 +5,7 @@ function Footer(){
     return (
         <>
 
-    <footer className='flex flex-col justify-center items-center gap-1 h-20 mt-8 w-full'>      
+    <footer className='flex flex-col justify-center items-center gap-1 h-20 mt-4 w-full'>      
         <div className='flex flex-col justify-center items-center gap-1'>
             <h1 className='text-bege font-poppins font-light text-xs'>Desenvolvido por Igor Fernandes </h1>
         </div>

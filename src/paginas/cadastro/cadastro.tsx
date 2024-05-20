@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import "./cadastro.module.css"
 import bgCadastroLogin from '../../assets/bg-cadastro.jpg'
 
+
     
 function Cadastro() {
 
@@ -63,15 +64,17 @@ function Cadastro() {
      
   return (
     <div className="" style={{ backgroundImage: `url(${bgCadastroLogin})`, 
+    height: '800px',
      backgroundPosition: 'center left', 
      backgroundSize: 'cover', 
-     backgroundRepeat: 'no-repeat'  }} >
+     backgroundRepeat: 'no-repeat',
+     padding: 15  }} >
       <div
           id="cadastro"
           className="flex flex-col justify-center items-center gap-1 
         w-1/2 h-[80vh] 
         bg-gray-500 bg-opacity-75 
-        p-8 mt-12 ml-10
+        p-8 mt-6 ml-10
         border border-bege"
       >
           <form className="w-full"
