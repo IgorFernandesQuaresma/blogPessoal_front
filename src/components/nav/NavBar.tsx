@@ -25,7 +25,7 @@ function NavBar(){
         <>
     <div className='p-4'>
    <nav className='bg-cinza 
-        bg-opacity-20 
+        bg-opacity-75
         flex flex-col justify-center items-center 
         w-2/3 
         mx-auto 
@@ -44,7 +44,11 @@ function NavBar(){
          <Link to = '/postagens'>
                 <a className = "text-bege font-sans hover:text-branco" href="#postagens" >Postagens</a>
          </Link>
+
+         <Link to = '/temas'>
                 <a className = "text-bege font-sans hover:text-branco" href="#temas">Temas</a>
+        </Link>
+
                 <a className = "text-bege font-sans hover:text-branco" href="cadastrar_tema">Cadastrar tema</a>
                 <a className = "text-bege font-sans hover:text-branco" href="perfil">Perfil</a>
         <Link to="" onClick={logout} className="text-bege font-sans hover:text-branco">Sair</Link>

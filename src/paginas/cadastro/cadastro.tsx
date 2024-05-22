@@ -27,7 +27,7 @@ function Cadastro() {
     }, [usuario])
 
     function retornar() {
-        navigate('/login')
+        navigate('/')
     }
 
     function atualizarEstado (e: ChangeEvent<HTMLInputElement>) {
@@ -149,7 +149,7 @@ function Cadastro() {
                       placeholder="Digite sua senha"
                       required
                       className="mt-1 block w-10/12 h-10 p-2 
-            border border-bege rounded-md shadow-sm 
+                 rounded-md shadow-sm 
             focus:outline-none focus:ring-blue-500 focus:border-blue-500
             bg-transparent text-branco"
                     value={confirmaSenha}
