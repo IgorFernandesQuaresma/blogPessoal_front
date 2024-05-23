@@ -4,7 +4,7 @@ import { useState, useContext, useEffect } from "react"
 import Tema from "../../models/Tema"
 import { AuthContext } from "../../contexts/AuthContext"
 import { buscar } from "../../service/Service";
-import { DNA, ThreeDots } from "react-loader-spinner"
+import { ThreeDots } from "react-loader-spinner"
 import './Temas.css'
 
 
@@ -26,7 +26,7 @@ function Temas() {
             })
         }catch (error: any){
             if (error.toString().includes('401')) {
-                alert("Token expirou!")
+                //alert("Token expirou!")
                 handleLogout()
             }
         }

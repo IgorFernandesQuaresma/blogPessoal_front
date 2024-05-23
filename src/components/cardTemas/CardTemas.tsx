@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import Tema from "../../models/Tema";
 import "./CardTemas.css";
 
@@ -18,12 +19,20 @@ function CardTemas({tema}: CardTemasProps) {
         {tema.descricao}
       </p>
       <div className="flex flex-row justify-center items-center gap-1 w-full h-[30vh] bg-cinza bg-opacity-75 box-border">
-        <button className="w-1/2 h-full text-bege font-sans font-light border border-bege rounded-md px-4 py-2 hover:bg-bege hover:text-branco">
-          Editar
-        </button>
-        <button className="w-1/2 h-full text-preto font-sans font-light border border-bege rounded-md px-4 py-2 bg-bege hover:border-cinza hover:bg-cinza hover:text-branco">
-          Deletar
-        </button>
+      
+      <Link to={`/editartema/${tema.id}`}
+                    className='w-1/2 h-full text-bege font-sans font-light border border-bege rounded-md px-4 py-2 
+                    hover:bg-bege hover:text-branco text-center flex items-center justify-center
+                    transition duration-700 ease-ease'>
+                    <button>Editar</button>
+                </Link>
+        
+       <Link to={`/deletartema/${tema.id}`}
+                    className='w-1/2 h-full text-bege font-sans font-light border border-bege rounded-md px-4 py-2 
+                    hover:bg-bege hover:text-branco text-center flex items-center justify-center
+                    transition duration-700 ease-ease'>
+                    <button>Deletar</button>
+                </Link>
       </div>
     </div>
   );

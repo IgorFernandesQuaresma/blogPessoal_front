@@ -49,7 +49,9 @@ function NavBar(){
                 <a className = "text-bege font-sans hover:text-branco" href="#temas">Temas</a>
         </Link>
 
+        <Link to = '/formulario_temas'>
                 <a className = "text-bege font-sans hover:text-branco" href="cadastrar_tema">Cadastrar tema</a>
+        </Link>
                 <a className = "text-bege font-sans hover:text-branco" href="perfil">Perfil</a>
         <Link to="" onClick={logout} className="text-bege font-sans hover:text-branco">Sair</Link>
                 <Botao texto='Fale comigo' link='https//google.com'/>

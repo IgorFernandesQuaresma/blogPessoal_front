@@ -15,6 +15,11 @@ function Home(){
             <Botao texto="Nova postagem" link="https://instagram.com" />
         </div>
     </section>
+
+
+
+
+
         </>
     );
 }

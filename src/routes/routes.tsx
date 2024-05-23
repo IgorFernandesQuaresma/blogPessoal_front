@@ -6,8 +6,9 @@ import Home from "../paginas/home/Home.tsx";
 import Cadastro from "../paginas/cadastro/cadastro.tsx";
 import Login from "../paginas/login/login.tsx";
 import { AuthProvider } from "../contexts/AuthContext.tsx";
-import Temas from "../paginas/temas/Temas.tsx";
-import FormTemas from "../paginas/formularioTemas/formTemas.tsx";
+import Temas from "../paginas/temas/ListarTemas.tsx";
+import FormTemas from "../paginas/temas/formularioTemas/formTemas.tsx";
+import DeletarTema from "../paginas/temas/deletarTemas/DeletarTemas.tsx";
 
 function AppRoutes ( ) {
     return (
@@ -20,6 +21,8 @@ function AppRoutes ( ) {
                     <Route path="/cadastro" element={<Cadastro />} />
                     <Route path="/temas" element={<Temas />} />
                     <Route path="/formulario_temas" element={<FormTemas />} />
+                    <Route path="/editartema/:id" element={<FormTemas />} />
+                    <Route path="/deletartema/:id" element={<DeletarTema />} />
                     <Route path="/" element={<Login />} />
                 </Routes>
                 <Footer />
