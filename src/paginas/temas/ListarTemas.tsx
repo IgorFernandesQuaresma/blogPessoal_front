@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom"
-import CardTemas from "../../components/cardTemas/CardTemas"
+import CardTemas from "../../components/cards/CardTemas"
 import { useState, useContext, useEffect } from "react"
 import Tema from "../../models/Tema"
 import { AuthContext } from "../../contexts/AuthContext"
@@ -60,7 +60,7 @@ function Temas() {
                 wrapperClass="three-dots-wrapper mx-auto"
                 color="#CDB58C"
             />
-               
+
             )}
 
             { temas.map ((tema)=> (
