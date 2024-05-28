@@ -6,6 +6,7 @@ import { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../contexts/AuthContext';
 import { ThreeDots } from 'react-loader-spinner';
 import CardPostagem from '../../components/cards/CardPostagem';
+import { toastAlerta } from '../../utils/ToastAlerta';
 
 
 function Postagens() {
@@ -15,6 +16,7 @@ function Postagens() {
     const [postagens, setPostagens] = useState<Postagem[]>([]);
 
     const { usuario, handleLogout } = useContext(AuthContext);
+
     const token = usuario.token;
 
     async function buscarPostagens() {
@@ -27,7 +29,7 @@ function Postagens() {
 
         } catch (error: any) {
             if (error.toString().includes('403')) {
-                alert('O token expirou, favor logar novamente')
+                toastAlerta('O token expirou, favor logar novamente', "info")
                 handleLogout()
             }
         }
@@ -35,7 +37,7 @@ function Postagens() {
 
     useEffect(() => {
         if (token === '') {
-            alert('Você precisa estar logado')
+            toastAlerta('Você precisa estar logado', 'info')
             navigate('/');
         }
     }, [token])
@@ -71,7 +73,6 @@ function Postagens() {
             </div>
 
             </>
-
         </div> 
         </div>
     )

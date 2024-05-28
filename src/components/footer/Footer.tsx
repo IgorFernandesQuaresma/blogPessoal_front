@@ -1,11 +1,16 @@
 import { GithubLogo, LinkedinLogo, WhatsappLogo } from '@phosphor-icons/react';
 import './Footer.css'
+import { AuthContext } from '../../contexts/AuthContext';
+import { ReactNode, useContext } from 'react';
 
 function Footer(){
-    return (
-        <>
 
-    <footer className='flex flex-col justify-center items-center gap-1 h-20 w-full bg-cinza'>      
+    const { usuario } = useContext(AuthContext)
+
+    let component: ReactNode
+
+    if (usuario.token !=="" ){
+        <footer className='flex flex-col justify-center items-center gap-1 h-20 w-full bg-cinza'>      
         <div className='flex flex-col justify-center items-center gap-1'>
             <h1 className='text-bege font-poppins font-light text-xs'>Desenvolvido por Igor Fernandes </h1>
         </div>
@@ -16,7 +21,10 @@ function Footer(){
         <LinkedinLogo className='text-bege hover:text-branco' size={32} />
         </div>
     </footer>
-    
+    }
+    return (
+        <>
+            {component}
         </>
     );
 }

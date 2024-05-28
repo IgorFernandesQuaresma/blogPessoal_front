@@ -4,6 +4,7 @@ import { AuthContext } from "../../../contexts/AuthContext"
 import Tema from "../../../models/Tema"
 import { RotatingLines } from "react-loader-spinner"
 import { atualizar, buscar, cadastrar } from "../../../service/Service"
+import { toastAlerta } from "../../../utils/ToastAlerta"
 
 function FormTemas() {
 
@@ -56,13 +57,13 @@ function FormTemas() {
                 await atualizar(`/temas`, tema, setTema, {
                     headers: {'Authorization': token }
                 });
-                alert('Tema atualizado com sucesso!');
+                toastAlerta('Tema atualizado com sucesso!', 'sucesso');
             } catch (error: any) {
                 if (error.toString().includes('401')) {
                    // alert('O token Expirou!')
                     handleLogout()
                 } else {
-                    alert('Erro ao atualizar o Tema!')
+                    toastAlerta('Erro ao atualizar o Tema!', 'erro')
                     
                 }
             }
@@ -73,13 +74,13 @@ function FormTemas() {
                 await cadastrar(`/temas`, tema, setTema, {
                     headers: { 'Authorization': token }
                 });
-                alert('Tema cadastrado com sucesso!');
+                toastAlerta('Tema cadastrado com sucesso!','sucesso');
             } catch (error: any) {
                 if (error.toString().includes('401')) {
                     //alert('O token Expirou!')
                     handleLogout()
                 } else {
-                    alert(`Erro ao atualizar o Tema! seu ${token} esta aqui` )
+                    toastAlerta(`Erro ao atualizar o Tema! seu ${token} esta aqui`, 'info' )
                 }
             }
 

@@ -6,6 +6,7 @@ import { AuthContext } from "../../contexts/AuthContext"
 import { buscar } from "../../service/Service";
 import { ThreeDots } from "react-loader-spinner"
 import './Temas.css'
+import { toastAlerta } from "../../utils/ToastAlerta"
 
 
 
@@ -35,7 +36,7 @@ function Temas() {
 
     useEffect(() => {
         if (token === '') {
-            alert('Você preisa estar logado!')
+            toastAlerta('Você preisa estar logado!', 'info')
             navigate('/')
         }
     }, [token])
@@ -64,9 +65,9 @@ function Temas() {
             )}
 
             { temas.map ((tema)=> (
-                 <>
-                 <CardTemas key={tema.id} tema ={tema}/>
-                 </>
+                <>
+                <CardTemas key={tema.id} tema ={tema}/>
+                </>
             ))}
 
 

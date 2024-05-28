@@ -3,28 +3,32 @@ import './NavBar.css'
 import IgorLogo from '../../assets/logo/Igor.png'
 import { Link, useNavigate } from 'react-router-dom';
 import Botao from '../botao/Botao';
-import { useContext } from 'react';
+import { ReactNode, useContext } from 'react';
 import { AuthContext } from '../../contexts/AuthContext';
+import { toastAlerta } from '../../utils/ToastAlerta';
 
 function NavBar(){
 
 
     const navigate = useNavigate()
 
-    const {handleLogout} = useContext(AuthContext)
+    const {usuario, handleLogout} = useContext(AuthContext)
 
     function logout() {
 
         handleLogout()
-        alert("Usuario desconectado com sucesso")
+        toastAlerta("Usuario desconectado com sucesso", "sucesso")
         navigate("/")
         
     }
-    
-    return (
-        <>
-    <div className='p-4'>
-   <nav className='bg-cinza 
+
+    let component: ReactNode
+
+    if (usuario.token !=="" ){
+
+        component = (
+        <div className='p-4'>
+    <nav className='bg-cinza 
         bg-opacity-75
         flex flex-col justify-center items-center 
         w-2/3 
@@ -33,32 +37,43 @@ function NavBar(){
         border border-bege' style={{ zIndex: '9999', position: 'relative' }}>
         <ul className='flex flex-row justify-center items-center gap-3'>
 
-         <Link to = './'>
+        <Link to = './'>
             <img className="nav_logo" src={IgorLogo} alt="Logo Igor" />
-         </Link>
+        </Link>
 
-         <Link to = './home'>
+        <Link to = './home'>
                 <a className = "text-bege font-sans hover:text-branco" href="#home">Home</a>
-         </Link>
+        </Link>
 
-         <Link to = '/postagens'>
+        <Link to = '/postagens'>
                 <a className = "text-bege font-sans hover:text-branco" href="#postagens" >Postagens</a>
-         </Link>
+        </Link>
 
-         <Link to = '/temas'>
+        <Link to = '/temas'>
                 <a className = "text-bege font-sans hover:text-branco" href="#temas">Temas</a>
         </Link>
 
         <Link to = '/formulario_temas'>
                 <a className = "text-bege font-sans hover:text-branco" href="cadastrar_tema">Cadastrar tema</a>
         </Link>
+
+        <Link to = '/perfil'>
                 <a className = "text-bege font-sans hover:text-branco" href="perfil">Perfil</a>
+        </Link>
+        
         <Link to="" onClick={logout} className="text-bege font-sans hover:text-branco">Sair</Link>
                 <Botao texto='Fale comigo' link='https//google.com'/>
     
         </ul>
     </nav>
     </div>
+        )
+    
+    }
+    
+    return (
+        <>
+            {component}
         </>
     );
 }

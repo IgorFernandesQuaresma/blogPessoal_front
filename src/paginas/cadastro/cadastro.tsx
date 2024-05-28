@@ -4,6 +4,7 @@ import { cadastrarUsuario } from "../../service/Service";
 import { useNavigate } from "react-router-dom";
 import "./cadastro.module.css"
 import bgCadastroLogin from '../../assets/bg-cadastro.jpg'
+import { toastAlerta } from "../../utils/ToastAlerta";
 
 
     
@@ -48,9 +49,9 @@ function Cadastro() {
         if (confirmaSenha === usuario.senha && usuario.senha.length >= 8)  {
             try {
                 await cadastrarUsuario (`/usuarios/cadastrar`, usuario, setUsuario)
-                alert('Usuario cadastrado com sucesso')
+                toastAlerta('Usuario cadastrado com sucesso', 'sucesso')
             } catch (error) {
-                alert ("Erro ao cadastrar usuario")
+                toastAlerta ("Erro ao cadastrar usuario", 'erro')
             }
         } else {
             alert("Dados errados tente novamente")
@@ -149,9 +150,9 @@ function Cadastro() {
                       placeholder="Digite sua senha"
                       required
                       className="mt-1 block w-10/12 h-10 p-2 
-                 rounded-md shadow-sm 
-            focus:outline-none focus:ring-blue-500 focus:border-blue-500
-            bg-transparent text-branco"
+                      border border-bege rounded-md shadow-sm 
+                      focus:outline-none focus:ring-blue-500 focus:border-blue-500
+                      bg-transparent text-branco"
                     value={confirmaSenha}
                     onChange={(e: ChangeEvent<HTMLInputElement>) => handleConfirmarSenha(e)}
                   />

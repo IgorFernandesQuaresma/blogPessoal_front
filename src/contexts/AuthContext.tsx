@@ -1,6 +1,8 @@
 import { ReactNode, createContext, useState } from "react";
 import UsuarioLogin from "../models/UsuarioLogin";
 import { login } from "../service/Service";
+import { toastAlerta } from "../utils/ToastAlerta";
+
 
 
 
@@ -36,12 +38,12 @@ export function AuthProvider({children}: AuthProviderProps){
             try {
 
             await login(`/usuarios/logar`, userLogin, setUsuario)
-            alert("Usuário logado com sucesso")
+            toastAlerta("Usuário logado com sucesso", "sucesso")
             setIsLoading(false)
 
             }catch(error){
                 console.log(error)
-                alert ("Dodos dos Ususarios inconsistentes")
+                toastAlerta("Dodos dos Ususarios inconsistentes", "info")
                 setIsLoading(false)
 
             }
@@ -57,7 +59,7 @@ export function AuthProvider({children}: AuthProviderProps){
                 token:''
             })
         }
-     
+
         return(
             
             <AuthContext.Provider value= {{usuario, handleLogin, handleLogout, isLoading}}>

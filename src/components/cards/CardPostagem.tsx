@@ -27,14 +27,14 @@ function CardPostagem ({postagem}: CardPostagensProps) {
     </div>
     
     <div className="flex flex-row justify-center items-center gap-1 w-full h-[50px] bg-cinza bg-opacity-75 box-border">
-        <Link to={`/home`}
+        <Link to={`/editarpostagem/${postagem.id}`}
             className='w-1/2 h-[50px] text-bege font-sans font-light border border-bege rounded-md px-4 py-2 
             hover:bg-bege hover:text-branco text-center flex items-center justify-center
             transition duration-700 ease-ease'>
-            <button>Editar</button>
+        <button>Atualizar</button>
         </Link>
         
-        <Link to={`/home`}
+        <Link to={`/deletarpostagem/${postagem.id}`}
             className='w-1/2 h-[50px] text-bege font-sans font-light border border-bege rounded-md px-4 py-2 
             hover:bg-bege hover:text-branco text-center flex items-center justify-center
             transition duration-700 ease-ease'>
